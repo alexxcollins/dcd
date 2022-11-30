@@ -31,6 +31,30 @@ Additionally, if you use ACCEL or the adversarial `BipedalWalker` environments i
 ([Bibtex here](https://raw.githubusercontent.com/facebookresearch/dcd/main/docs/bibtex/accel.bib))
 
 ## Setup
+To set up on Mac M1: run the following commands:
+```
+mamba create --file environment.yml -n dcd
+git clone https://github.com/openai/baselines.git
+cd baselines
+pip install -e .
+cd ..
+pip install pyglet==1.5.11
+```
+
+To create the environment and yaml file initially, I did the following:
+```
+mamba create -n dcd
+while read requirement; do mamba install --yes $requirement; done < requirements_mamba.txt
+brew install swig
+pip install -r requirements_pip.txt
+git clone https://github.com/openai/baselines.git
+cd baselines
+pip install -e .
+cd ..
+pip install pyglet==1.5.11
+```
+
+Original instructions from dcd repo
 To install the necessary dependencies, run the following commands:
 ```
 conda create --name dcd python=3.8
